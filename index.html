@@ -4,6 +4,21 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <!-- Using A-frame version 1.5.0 -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <!-- Card Effects -->
+    <script src="https://unpkg.com/aframe-hologram-shader"></script>
+    <script src="./effects/holo-shimmer.js"></script>
+    <script src="./effects/matrix-stream.js"></script>
+    <script src="./effects/card-glow.js"></script>
+    <script src="./effects/halo-rings.js"></script>
+    <script src="./effects/shader-time.js"></script>
+
+    <script src="./components/avatar-effect-utils.js"></script>
+    <!-- glTF Effects -->
+    <script src="./components/effect-glitch.js"></script>
+    <script src="./components/effect-glow.js"></script>
+    <script src="./components/effect-matrix.js"></script>
+
     <script>
       AFRAME.registerComponent("navigate-on-click", {
         schema: {
@@ -37,12 +52,8 @@
       <!-- For more information: https://aframe.io/docs/1.5.0/core/asset-management-system.html -->
       <a-assets>
         <img id="card" src="./images/virtualCard.png" />
-        <a-asset-item
-          id="avatarModel"
-          src="AvatarCreation_Files.blender.gltf"
-        ></a-asset-item>
+        <a-asset-item id="avatarModel" src="./models/MyAvatar.glb"></a-asset-item>
       </a-assets>
-
       <!-- Camera settings -->
       <a-camera
         position="0 0 0"
