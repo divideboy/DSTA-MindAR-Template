@@ -1,9 +1,25 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <!-- Using A-frame version 1.5.0 -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script> <!-- Using A-frame version 1.5.0 -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <script>
+      AFRAME.registerComponent("navigate-on-click", {
+        schema: {
+          url: { type: "string", default: "" },
+        },
+
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+
+          el.addEventListener("click", function () {
+            window.open(data.url, "_blank");
+          });
+        },
+      });
+    </script>
 
     <!-- Card Effects -->
     <script src="https://unpkg.com/aframe-hologram-shader"></script>
@@ -18,24 +34,6 @@
     <script src="./components/effect-glitch.js"></script>
     <script src="./components/effect-glow.js"></script>
     <script src="./components/effect-matrix.js"></script>
-
-    <script>
-      AFRAME.registerComponent("navigate-on-click", {
-        schema: {
-          url: { type: "string", default: "" },
-        },
-
-        init: function () {
-          var data = this.data;
-
-          var el = this.el;
-
-          el.addEventListener("click", function () {
-            window.open(data.url, "_blank");
-          });
-        },
-      });
-    </script>
   </head>
 
   <body>
